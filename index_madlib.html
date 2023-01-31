@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html LANG="EN">
+
+<head>
+    <meta charset="utf-8">
+    <META NAME="VIEWPORT" CONTENT="WIDTH=DEVICE-WIDTH, INITIAL-SCALE=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <TITLE>Lab 3: Mad Libs - Police Chase</TITLE>
+</head>
+
+<body>
+    <div class="container" <h1> Lab 3: Mad Libs - Police Chase</h1>
+        <p>Fill out the form below and click the button to see the story.</p>
+        <form method="get">
+            <div class="form-group">
+                <label for="pluralNoun">Plural Noun:</label>
+                <input type="text" name="pluralNoun" id="pluralNoun" placeholder="Ex. Cats">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="noun1">Noun:</label>
+                <input type="text" name="noun1" id="noun1" placeholder="Ex. Car">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="noun2">Noun:</label>
+                <input type="text" name="noun2" id="noun2" placeholder="Ex. Add Your Name">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="adverb">Adverb:</label>
+                <input type="text" name="adverb" id="adverb" placeholder="Ex. Quickly, slowly, rarely">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="noun3">Noun:</label>
+                <input type="text" name="noun3" id="noun3" placeholder="Ex. Lion">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="verbPastTense">Verb Past-Tense</Past-Tense>:</label>
+                <input type="text" name="verbPastTense" id="verbPastTense" placeholder="Ex. Verb suffixed with -ed">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="adjective">Adjective:</label>
+                <input type="text" name="adjective" id="adjective"
+                    placeholder="Ex describing color, size, shape, taste">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="noun4">Noun:</label>
+                <input type="text" name="noun4" id="noun4" placeholder="Ex Person, Place or Thing">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="verb">Verb:</label>
+                <input type="text" name="verb" id="verb" placeholder="Ex physical or mental action or state of being">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="verbPastParticiple">Verb past participle:</label>
+                <input type="text" name="verbPastParticiple" id="verbPastParticiple"
+                    placeholder="Ex. Thrown or Raised">
+                <br>
+            </div>
+            <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="sentence"></div>
+    </div>
+</body>
+<script>    
+    // Hide the sentence until the user clicks the button
+    document.getElementById("sentence").style.display = "none";
+    // Get the query string parameters
+    var params = new URLSearchParams(window.location.search);
+    // Get the values from the query string
+    var pluralNoun = params.get("pluralNoun");
+    var noun1 = params.get("noun1");
+    var noun2 = params.get("noun2");
+    var adverb = params.get("adverb");
+    var noun3 = params.get("noun3");
+    var verbPastTense = params.get("verbPastTense");
+    var adjective = params.get("adjective");
+    var noun4 = params.get("noun4");
+    var verb = params.get("verb");
+    var verbPastParticiple = params.get("verbPastParticiple");
+    // Assign the values to the form fields
+    document.getElementById("pluralNoun").value = pluralNoun;
+    document.getElementById("noun1").value = noun1;
+    document.getElementById("noun2").value = noun2;
+    document.getElementById("adverb").value = adverb;
+    document.getElementById("noun3").value = noun3;
+    document.getElementById("verbPastTense").value = verbPastTense;
+    document.getElementById("adjective").value = adjective;
+    document.getElementById("noun4").value = noun4;
+    document.getElementById("verb").value = verb;
+    document.getElementById("verbPastParticiple").value = verbPastParticiple;
+
+
+
+    // If the values are not null, then display the sentence
+    if (pluralNoun != null && noun1 != null && noun2 != null && adverb != null && noun3 != null && verbPastTense != null && adjective != null && noun4 != null && verb != null && verbPastParticiple != null) {
+        // Display the sentence
+        document.getElementById("sentence").style.display = "block";
+        // Set the sentence text
+        document.getElementById("sentence").innerHTML = "Two teenage " + pluralNoun + " tried to light " + noun1 + " on fire. Suddenly they were caught by the" + noun2 + " and had to escape " + adverb + " through a " + noun3 + ". The children slid down swiftly, but to no appeal did they make it.  The police " + verbPastTense + " them, handcuffed the delinquents, and placed them in the back of the car. Them, being the " + adjective + noun4 + " that they are, proceeded to " + verb + " in the back of the cop car. Then from all the sins established, the car lit on fire by the hands of the devil and the kids " + verbPastParticiple + ".";
+    }
+</script>
+
+</html>
